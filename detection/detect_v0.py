@@ -1,3 +1,5 @@
+counts = {}
+
 with open("auth.log") as f:
     for line in f:
         if "Connection closed by" in line:
@@ -5,4 +7,10 @@ with open("auth.log") as f:
             words = line.split()
             port = words.index("port")
             ip = words[port - 1]
-            print(ip)
+            if ip in counts:
+                counts[ip] = counts[ip] + 1
+            else:
+                counts[ip] = 1
+            
+            
+print(counts)
