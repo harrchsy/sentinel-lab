@@ -3,7 +3,7 @@ THRESHOLD = 3
 
 with open("auth.log") as f:
     for line in f:
-        if "Connection closed by" in line:
+        if "Connection closed by" in line and "authenticating" not in line:
             line = line.strip()
             words = line.split()
             port = words.index("port")
