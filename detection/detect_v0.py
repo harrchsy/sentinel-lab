@@ -1,4 +1,5 @@
 counts = {}
+THRESHOLD = 3
 
 with open("auth.log") as f:
     for line in f:
@@ -13,7 +14,7 @@ with open("auth.log") as f:
                 counts[ip] = 1
             
 for ip, n in counts.items():
-    if n >= 3:
+    if n >= THRESHOLD:
         print("ALERT", ip, n)
     else:
         print("ok", ip, n ) 
