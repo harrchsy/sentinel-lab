@@ -12,5 +12,8 @@ with open("auth.log") as f:
             else:
                 counts[ip] = 1
             
-            
-print(counts)
+for ip, n in counts.items():
+    if n >= 3:
+        print("ALERT", ip, n)
+    else:
+        print("ok", ip, n ) 
